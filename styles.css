@@ -741,7 +741,15 @@ img { max-width: 100%; display: block; }
 /* =========================================
    TESTIMONIALS
    ========================================= */
-/* Testimonials: video stacked above quote */
+/* Two videos side by side */
+.testimonials-videos-row {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Each video + quote column */
 .testimonials-layout {
   display: flex;
   flex-direction: column;

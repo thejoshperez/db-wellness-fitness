@@ -84,24 +84,23 @@ const sectionObserver = new IntersectionObserver(
 
 sections.forEach(s => sectionObserver.observe(s));
 
-// --- Video testimonial play button ---
-const testimonialVideo = document.getElementById('testimonialVideo');
-const videoPlayBtn = document.getElementById('videoPlayBtn');
+// --- Video testimonial play buttons ---
+[
+  ['testimonialVideo',  'videoPlayBtn'],
+  ['testimonialVideo2', 'videoPlayBtn2'],
+].forEach(([videoId, btnId]) => {
+  const video = document.getElementById(videoId);
+  const btn   = document.getElementById(btnId);
+  if (!video || !btn) return;
 
-if (testimonialVideo && videoPlayBtn) {
-  videoPlayBtn.addEventListener('click', () => {
-    testimonialVideo.play();
-    videoPlayBtn.classList.add('hidden');
+  btn.addEventListener('click', () => {
+    video.play();
+    btn.classList.add('hidden');
   });
 
-  testimonialVideo.addEventListener('pause', () => {
-    videoPlayBtn.classList.remove('hidden');
-  });
-
-  testimonialVideo.addEventListener('ended', () => {
-    videoPlayBtn.classList.remove('hidden');
-  });
-}
+  video.addEventListener('pause', () => btn.classList.remove('hidden'));
+  video.addEventListener('ended', () => btn.classList.remove('hidden'));
+});
 
 // --- Smooth number counter animation for hero stats ---
 const statNums = document.querySelectorAll('.stat-num');
