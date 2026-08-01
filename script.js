@@ -84,6 +84,25 @@ const sectionObserver = new IntersectionObserver(
 
 sections.forEach(s => sectionObserver.observe(s));
 
+// --- Video testimonial play button ---
+const testimonialVideo = document.getElementById('testimonialVideo');
+const videoPlayBtn = document.getElementById('videoPlayBtn');
+
+if (testimonialVideo && videoPlayBtn) {
+  videoPlayBtn.addEventListener('click', () => {
+    testimonialVideo.play();
+    videoPlayBtn.classList.add('hidden');
+  });
+
+  testimonialVideo.addEventListener('pause', () => {
+    videoPlayBtn.classList.remove('hidden');
+  });
+
+  testimonialVideo.addEventListener('ended', () => {
+    videoPlayBtn.classList.remove('hidden');
+  });
+}
+
 // --- Smooth number counter animation for hero stats ---
 const statNums = document.querySelectorAll('.stat-num');
 
