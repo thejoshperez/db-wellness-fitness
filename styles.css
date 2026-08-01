@@ -741,73 +741,45 @@ img { max-width: 100%; display: block; }
 /* =========================================
    TESTIMONIALS
    ========================================= */
-/* Testimonials: video + quote side by side */
+/* Testimonials: video stacked above quote */
 .testimonials-layout {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  max-width: 860px;
+  gap: 16px;
+  max-width: 380px;
   margin: 0 auto;
 }
 
-.testimonial-video-column { flex-shrink: 0; }
-
-.testimonial-quote-column {
-  display: flex;
-  align-items: center;
-}
-
 .testimonial-quote-card {
+  width: 100%;
   background: var(--dark-card);
   border: 1px solid rgba(58,123,213,0.18);
   border-radius: var(--radius-lg);
-  padding: 44px 40px;
-  position: relative;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.quote-mark {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 96px;
-  line-height: 0.7;
-  color: var(--blue);
-  opacity: 0.3;
-  margin-bottom: 16px;
-  display: block;
+.testimonial-quote-card .testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .quote-text {
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--white);
-  line-height: 1.65;
+  font-size: 14px;
+  color: var(--white-60);
+  line-height: 1.6;
   font-style: italic;
-  margin-bottom: 28px;
-}
-
-.quote-divider {
-  width: 48px;
-  height: 2px;
-  background: var(--blue);
-  border-radius: 2px;
-  margin-bottom: 24px;
+  margin: 0;
 }
 
 .quote-stars {
-  margin-top: 20px;
-  font-size: 18px;
-  letter-spacing: 4px;
-}
-
-@media (max-width: 860px) {
-  .testimonials-layout {
-    grid-template-columns: 1fr;
-  }
-  .testimonial-video-column {
-    max-width: 360px;
-    margin: 0 auto;
-    width: 100%;
-  }
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-top: 2px;
 }
 
 .testimonial-video-card {
